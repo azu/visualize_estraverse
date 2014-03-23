@@ -3,6 +3,7 @@
  * LICENSE : MIT
  */
 "use strict";
+var styleChanger = require("./styleChanger");
 var textArea = document.getElementById("code-area");
 var editor = CodeMirror.fromTextArea(textArea, {
     mode: "javascript",
@@ -13,6 +14,7 @@ var editor = CodeMirror.fromTextArea(textArea, {
 var traverseSteper = require("./traverseSteper");
 function highlight(locs) {
     if (locs.length == 0) {
+        styleChanger.dispose();
         return;
     }
     var loc = locs.pop();
@@ -22,7 +24,13 @@ function highlight(locs) {
         }, 300);
     })
 }
-function selectLoc(loc, callback) {
+function selectLoc(item, callback) {
+    var loc = item.loc;
+    if (item.visitorType == "enter") {
+        styleChanger.insert(".CodeMirror-selected { background: rgb(255, 102, 102); }");
+    } else if (item.visitorType == "leave") {
+        styleChanger.insert(".CodeMirror-selected { background: rgb(81, 207, 207); }");
+    }
     editor.setSelection({line: loc.start.line - 1, ch: loc.start.column}, {line: loc.end.line - 1, ch: loc.end.column});
     callback();
 }

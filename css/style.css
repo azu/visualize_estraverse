@@ -1,3 +1,15 @@
-body{
+body {
     font-size: 24px;
+}
+
+#enter-button, #leave-button, #both-button {
+    font-size: 20px;
+}
+
+.enter-color {
+    color: rgb(255, 102, 102);
+}
+
+.leave-color {
+    color: rgb(81, 207, 207);
 }

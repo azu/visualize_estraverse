@@ -12,12 +12,20 @@ module.exports = function (code) {
     var both = [];
     estravese.traverse(ast, {
         enter: function (node) {
-            enters.push(node.loc);
-            both.push(node.loc);
+            var items = {
+                visitorType: "enter",
+                loc: node.loc
+            };
+            enters.push(items);
+            both.push(items);
         },
         leave: function (node) {
-            leaves.push(node.loc);
-            both.push(node.loc);
+            var items = {
+                visitorType: "leave",
+                loc: node.loc
+            };
+            leaves.push(items);
+            both.push(items);
         }
     });
     return {
