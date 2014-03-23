@@ -9,15 +9,19 @@ module.exports = function (code) {
     var ast = esprima.parse(code, {loc: true});
     var enters = [];
     var leaves = [];
+    var both = [];
     estravese.traverse(ast, {
         enter: function (node) {
             enters.push(node.loc);
+            both.push(node.loc);
         },
         leave: function (node) {
             leaves.push(node.loc);
+            both.push(node.loc);
         }
     });
     return {
+        both: both,
         enter: enters,
         leave: leaves
     };

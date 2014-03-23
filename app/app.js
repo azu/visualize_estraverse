@@ -38,3 +38,9 @@ document.getElementById("leave-button").addEventListener("click", function () {
     var levesLoc = nodes.leave;
     highlight(levesLoc.reverse());
 });
+document.getElementById("both-button").addEventListener("click", function () {
+    var editingCode = editor.getValue();
+    var nodes = traverseSteper(editingCode);
+    var bothLoc = nodes.both;
+    highlight(bothLoc.reverse());
+});
