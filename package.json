@@ -1,0 +1,29 @@
+{
+  "name": "visualize_estraverse",
+  "description": "visualize estraverse step",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git://github.com/azu/visualize_estraverse.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify app/app.js -d -o public/app.js -v",
+    "test": "mocha test/*.js"
+  },
+  "directories": {
+    "test": "test/"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/visualize_estraverse/issues"
+  },
+  "dependencies": {
+    "estraverse": "^1.5.0",
+    "esprima": "^1.0.4",
+    "codemirror": "^4.0.3"
+  },
+  "devDependencies": {
+    "watchify": "^0.6.3"
+  }
+}
