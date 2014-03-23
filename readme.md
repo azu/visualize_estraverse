@@ -10,7 +10,7 @@ Visualize [estraverse](https://github.com/Constellation/estraverse "Estraverse")
 
 ### Leave
 
-![leave](http://gyazo.com/5258b6b99162d5cd5a379164c12eb33d.gif)
+![leave](http://gyazo.com/b5139df70f41da37ee45d79647d8394f.gif)
 
 ## Contributing
 
