@@ -7,10 +7,9 @@ var styleChanger = require("./styleChanger");
 var textArea = document.getElementById("code-area");
 var editor = CodeMirror.fromTextArea(textArea, {
     mode: "javascript",
-    value: "var AST = 'is tree'",
     lineNumbers: true
 });
-
+require("./hash-injector")(editor);
 var traverseSteper = require("./traverseSteper");
 function highlight(locs) {
     if (locs.length == 0) {
@@ -51,4 +50,8 @@ document.getElementById("both-button").addEventListener("click", function () {
     var nodes = traverseSteper(editingCode);
     var bothLoc = nodes.both;
     highlight(bothLoc.reverse());
+});
+document.getElementById("create-permanent").addEventListener("click", function (event) {
+    event.preventDefault();
+    location.hash = encodeURIComponent(editor.getValue());
 });
